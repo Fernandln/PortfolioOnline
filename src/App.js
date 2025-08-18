@@ -1,23 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import Experiencia from './componentes/Experiencia';
+import Formacao from './componentes/Formacao';
+import Footer from './componentes/Footer';
+import Header from './componentes/Header';
+import Introducao from './componentes/Introducao';
+import Saudacao from './componentes/Saudacao';
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Projetos from './componentes/Projetos';
 
 function App() {
+  useEffect(() => {
+      AOS.init({
+        duration: 1000, // duração da animação (ms)
+        once: true      // anima só uma vez
+      });
+    }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Saudacao/>
+      <Introducao/>
+      <Projetos/>
+      <Experiencia/>
+      <Formacao/>
+      <Footer/>
     </div>
   );
 }
